@@ -49,19 +49,16 @@ export class EmployeesComponent implements OnInit {
 
   onEdit(row) {
     this.service.populateForm(row);
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%';
-    this.dialog.open(EmployeeComponent, dialogConfig).afterClosed().subscribe(() => {
-      this.getEmployees();
-      this.onSearchClear();
-    });
+    this.onInitDialog();
 
   }
 
   onCreate() {
     this.service.initializeFormGroup();
+    this.onInitDialog();
+  }
+
+  onInitDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
