@@ -38,7 +38,6 @@ describe('EmployeeComponent', () => {
 });
 
 function setup() {
-  const employee = {id: 1, surname: 'Тестовый', name: 'Тест', patronymic: 'Тестович', email: 'ff@otlook.com', city: 'Чернигов'};
   const service = autoSpy(EmployeeService);
   const dialogRef = autoSpy(MatDialogRef<EmployeeComponent>);
   const builder = {
