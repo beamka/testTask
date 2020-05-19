@@ -1,6 +1,6 @@
 import { EmployeeService } from '../employee.service';
 import { EmployeeComponent } from './employee.component';
-import { autoSpy } from 'auto-Spy';
+import { autoSpy } from 'autospy';
 import {MatDialogRef} from '@angular/material/dialog';
 
 describe('EmployeeComponent', () => {
@@ -39,7 +39,7 @@ describe('EmployeeComponent', () => {
 
 function setup() {
   const service = autoSpy(EmployeeService);
-  const dialogRef = autoSpy(MatDialogRef<EmployeeComponent>);
+  const dialogRef = autoSpy(new MatDialogRef<EmployeeComponent>());
   const builder = {
     service,
 dialogRef,

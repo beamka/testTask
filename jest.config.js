@@ -1,4 +1,3 @@
-// https://github.com/thymikee/jest-preset-angular#brief-explanation-of-config
 module.exports = {
     preset: 'jest-preset-angular',
     roots: ['src'],

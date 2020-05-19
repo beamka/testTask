@@ -18,7 +18,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+
   }
 
   onSubmit() {
