@@ -39,7 +39,7 @@ describe('EmployeeComponent', () => {
 
 function setup() {
   const service = autoSpy(EmployeeService);
-  const dialogRef = autoSpy(new MatDialogRef<EmployeeComponent>());
+  const dialogRef = autoSpy(MatDialogRef<EmployeeComponent>());
   const builder = {
     service,
 dialogRef,
