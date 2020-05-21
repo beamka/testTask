@@ -35,7 +35,7 @@ describe('EmployeeService http', () => {
 
     const req = http.expectOne(employeeService.employeesUrl);
     expect(req.request.method).toEqual('GET');
-    req.flush(expectedData);
+
   });
 
   it('should have made one request to POST data from expected URL', () => {
@@ -47,7 +47,7 @@ describe('EmployeeService http', () => {
 
     const req = http.expectOne(employeeService.employeesUrl);
     expect(req.request.method).toEqual('POST');
-    req.flush(expectedData);
+
   });
 
   it('should have made one request to PUT data from expected URL', () => {
@@ -59,7 +59,7 @@ describe('EmployeeService http', () => {
 
     const req = http.expectOne(employeeService.employeesUrl);
     expect(req.request.method).toEqual('PUT');
-    req.flush(expectedData);
+
   });
 
   it('should have made one request to DELETE data from expected URL', () => {
@@ -71,7 +71,6 @@ describe('EmployeeService http', () => {
     const url = `${employeeService.employeesUrl}/${id}`;
     const req = http.expectOne(url);
     expect(req.request.method).toEqual('DELETE');
-    req.flush(expectedData);
 
   });
 

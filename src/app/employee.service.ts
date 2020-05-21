@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import {Observable, of} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 import {Employee} from './employee';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -42,6 +41,10 @@ export class EmployeeService {
     });
   }
 
+  populateForm(employee) {
+    this.form.setValue(_.omit(employee, ''));
+  }
+
   public getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.employeesUrl);
   }
@@ -64,10 +67,6 @@ export class EmployeeService {
   /** PUT: update the employee on the server */
   updateEmployee(employee: Employee): Observable<any> {
     return this.http.put(this.employeesUrl, employee, this.httpOptions);
-  }
-
-  populateForm(employee) {
-    this.form.setValue(_.omit(employee, ''));
   }
 
 }
