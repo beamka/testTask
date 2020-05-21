@@ -22,7 +22,6 @@ export class EmployeeService {
   constructor(private http: HttpClient) {
   }
 
-
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
     surname: new FormControl('', Validators.required),
@@ -50,10 +49,7 @@ export class EmployeeService {
   //////// Save methods //////////
   /** POST: add a new employees to the server */
   addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.employeesUrl, employee, this.httpOptions).pipe(
-      tap((newEmployee: Employee) => this.log(`added employee w/ id=${newEmployee.id}`)),
-      catchError(this.handleError<Employee>('addEmployee'))
-    );
+    return this.http.post<Employee>(this.employeesUrl, employee, this.httpOptions);
 
   }
 
@@ -62,43 +58,16 @@ export class EmployeeService {
     const id = typeof employee === 'number' ? employee : employee.id;
     const url = `${this.employeesUrl}/${id}`;
 
-    return this.http.delete<Employee[]>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted employee id=${id}`)),
-      catchError(this.handleError<Employee[]>('deleteEmployee'))
-    );
+    return this.http.delete<Employee[]>(url, this.httpOptions);
   }
 
   /** PUT: update the employee on the server */
   updateEmployee(employee: Employee): Observable<any> {
-    console.log(employee);
-
-    return this.http.put(this.employeesUrl, employee, this.httpOptions).pipe(
-      tap(_ => this.log(`updated employee id=${employee.id}`)),
-      catchError(this.handleError<any>('updateEmployee'))
-    );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error); // log to console instead
-      this.log(`${operation} failed: ${error.message}`);
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
+    return this.http.put(this.employeesUrl, employee, this.httpOptions);
   }
 
   populateForm(employee) {
     this.form.setValue(_.omit(employee, ''));
   }
 
-  log(message: string) {
-    console.log(`EmployeeService: ${message}`);
-  }
 }
