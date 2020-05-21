@@ -44,16 +44,12 @@ export class EmployeeService {
   }
 
   public getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.employeesUrl)
-      .pipe(tap(_ => this.log('fetched employees')),
-        catchError(this.handleError<Employee[]>('getEmployees', []))
-      );
+    return this.http.get<Employee[]>(this.employeesUrl);
   }
 
   //////// Save methods //////////
   /** POST: add a new employees to the server */
   addEmployee(employee: Employee): Observable<Employee> {
-    console.log(employee);
     return this.http.post<Employee>(this.employeesUrl, employee, this.httpOptions).pipe(
       tap((newEmployee: Employee) => this.log(`added employee w/ id=${newEmployee.id}`)),
       catchError(this.handleError<Employee>('addEmployee'))

@@ -4,7 +4,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "paths": {
-      "autospy": ["./auto-spy"]
+      "autospy": ["./src/app/auto-spy"]
     },
     "sourceMap": true,
     "declaration": false,
