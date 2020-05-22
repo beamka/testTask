@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+.mat-row:hover {
+  background-color: darkslateblue;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}

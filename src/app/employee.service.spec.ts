@@ -1,8 +1,9 @@
-import {EmployeeService} from './employee.service';
 import {TestBed} from '@angular/core/testing';
-import {EMPLOYEES} from './mock-employee';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {HttpClient} from '@angular/common/http';
+
+import {EMPLOYEES} from './mock-employee';
+import {EmployeeService} from './employee.service';
 
 describe('EmployeeService http', () => {
 
