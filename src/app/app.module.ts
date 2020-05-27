@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {Injector, NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -14,6 +14,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {createCustomElement} from '@angular/elements';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -74,8 +75,14 @@ import {ProjectLinkService} from './project-link.service';
     ReactiveFormsModule
   ],
   providers: [EmployeeService, ProjectService, ProjectLinkService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MyNavComponent]
 })
 export class AppModule {
+  constructor(injector: Injector) {
+    const custom = createCustomElement(MyNavComponent, {injector});
+    customElements.define('app-root', custom);
+  }
+ ngDoBootstrap() {}
 }
 
