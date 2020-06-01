@@ -11,5 +11,14 @@ module.exports = {
         '@state/(.*)': '<rootDir>/src/app/state/$1',
         'autoSpy':'<rootDir>/src/app/auto-spy.ts'
     },
-    transformIgnorePatterns: ['node_modules/(?!(jest-test))']
+    transformIgnorePatterns: ['node_modules/(?!(jest-testPromise))'],
+  maxWorkers: 4,
+  reporters: [
+    "default",
+    ["jest-html-reporters", {
+      "publicPath": "./html-report",
+      "filename": "report.html",
+      "expand": true
+    }]
+  ]
 };
