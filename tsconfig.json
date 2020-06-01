@@ -2,10 +2,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
     "paths": {
-      "autospy": ["./src/app/auto-spy"]
+      "autoSpy": ["./src/app/auto-spy"]
     },
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
