@@ -1,10 +1,10 @@
 {
-  "name": "test-task",
+  "name": "testTask",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --output-hashing=none",
+    "build:prod": "ng build --prod --output-hashing=none",
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e"

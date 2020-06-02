@@ -67,14 +67,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "testTask:build:production",
-	            "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "vendorChunk": false,
-              "buildOptimizer": true
-            }
+              "browserTarget": "testTask:build:production"
+	          }
           }
         },
         "extract-i18n": {
