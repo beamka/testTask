@@ -78,11 +78,16 @@ import {ProjectLinkService} from './project-link.service';
   bootstrap: [AppComponent],
   entryComponents: [MyNavComponent]
 })
+
 export class AppModule {
-  constructor(injector: Injector) {
-    const custom = createCustomElement(MyNavComponent, {injector});
-    customElements.define('app-root', custom);
+  constructor(private injector: Injector) {
   }
- ngDoBootstrap() {}
+
+  ngDoBootstrap() {
+    const custom = createCustomElement(MyNavComponent, {injector: this.injector});
+    if (!window.customElements.get('app-my-nav')) {
+      window.customElements.define('app-my-nav', custom);
+    }
+  }
 }
 

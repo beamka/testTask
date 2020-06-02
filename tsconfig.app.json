@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": ["jest"]
   },
   "files": [
     "src/main.ts",
@@ -10,5 +10,10 @@
   ],
   "include": [
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/setup-jest.ts",
+    "**/*.spec.ts",
+    "./app/auto-spy.ts"
   ]
 }
