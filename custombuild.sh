@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-npm run build:prod testTask  && cat dist/testTask/runtime.js dist/testTask/main.js dist/testTask/polyfills.js> preview/test.js
-
+npm run build:prod test-task  && cat dist/test-task/runtime.js dist/test-task/main.js dist/test-task/polyfills.js> preview/test.js
