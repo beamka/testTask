@@ -76,7 +76,11 @@ import {ProjectLinkService} from './project-link.service';
   ],
   providers: [EmployeeService, ProjectService, ProjectLinkService],
   bootstrap: [AppComponent],
-  entryComponents: [MyNavComponent]
+  entryComponents: [MyNavComponent,
+    EmployeesComponent,
+    EmployeeComponent,
+    ProjectsComponent,
+    ProjectComponent]
 })
 
 export class AppModule {
